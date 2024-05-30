@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+
+{% extends "layout.html" %}
+{% block content %}
+    <h2>Quiz Results</h2>
+    {% for result in results %}
+        <p>Score: {{ result.score }}</p>
+	<p>Time Taken: {{ result.time_taken }} seconds</p>
+	<p>Feedback: {{ result.feedback }}</p>
+	<p>Date Taken: {{ result.date_taken }}</p>
+	<hr>
+    {% endfor %}
+{% endblock %}

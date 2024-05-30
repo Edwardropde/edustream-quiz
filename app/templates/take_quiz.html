@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+
+{% extends "layout.html" %}
+{% block content %}
+<div class="row justify-content-center">
+    <div class="col-md-8">
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">{{ quiz.title }}</h5>
+                <form method="POST">
+                    {{ form.hidden_tag() }}
+                    {% for question in questions %}
+                        <div class="form-group">
+                            <label>{{ question.text }}</label>
+                            <input type="text" name="question-{{ question.id }}" class="form-control" required>
+                        </div>
+                    {% endfor %}
+                    <input type="hidden" name="time_taken" value="60"> <!-- Example time taken -->
+                    <div class="form-group">
+                        <label for="feedback">Feedback:</label>
+                        <textarea name="feedback" class="form-control" required></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-success">Submit Quiz</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
